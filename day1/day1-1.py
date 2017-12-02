@@ -7,11 +7,11 @@ RESULT = 0
 
 # Check all but the last number
 for i in range(0, len(DATA) - 1):
-	if DATA[i] == DATA[i+1]:
-		RESULT += int(DATA[i])
+    if DATA[i] == DATA[i+1]:
+        RESULT += int(DATA[i])
 
 # Check last number wraparound
 if DATA[-1] == DATA[0]:
-	RESULT += int(DATA[-1])
+    RESULT += int(DATA[-1])
 
 print('The Captcha solution is {}'.format(str(RESULT)))
