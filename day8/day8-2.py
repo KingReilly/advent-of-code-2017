@@ -18,44 +18,28 @@ for line in instructions:
         variables[b] = 0
 
     if operation == 'inc':
-        if conditional == '==':
-            if variables[b] == conditionalAmount:
-                variables[a] += amount
-        elif conditional == '<':
-            if variables[b] < conditionalAmount:
-                variables[a] += amount
-        elif conditional == '>':
-            if variables[b] > conditionalAmount:
-                variables[a] += amount
-        elif conditional == '<=':
-            if variables[b] <= conditionalAmount:
-                variables[a] += amount
-        elif conditional == '>=':
-            if variables[b] >= conditionalAmount:
-                variables[a] += amount
-        else:
-            if variables[b] != conditionalAmount:
-                variables[a] += amount
-
+        operator = 1
     else:
-        if conditional == '==':
-            if variables[b] == conditionalAmount:
-                variables[a] -= amount
-        elif conditional == '<':
-            if variables[b] < conditionalAmount:
-                variables[a] -= amount
-        elif conditional == '>':
-            if variables[b] > conditionalAmount:
-                variables[a] -= amount
-        elif conditional == '<=':
-            if variables[b] <= conditionalAmount:
-                variables[a] -= amount
-        elif conditional == '>=':
-            if variables[b] >= conditionalAmount:
-                variables[a] -= amount
-        else:
-            if variables[b] != conditionalAmount:
-                variables[a] -= amount
+        operator = -1
+
+    if conditional == '==':
+        if variables[b] == conditionalAmount:
+            variables[a] += operator * amount
+    elif conditional == '<':
+        if variables[b] < conditionalAmount:
+            variables[a] += operator * amount
+    elif conditional == '>':
+        if variables[b] > conditionalAmount:
+            variables[a] += operator * amount
+    elif conditional == '<=':
+        if variables[b] <= conditionalAmount:
+            variables[a] += operator * amount
+    elif conditional == '>=':
+        if variables[b] >= conditionalAmount:
+            variables[a] += operator * amount
+    else:
+        if variables[b] != conditionalAmount:
+            variables[a] += operator * amount
 
     if variables[a] > highest:
         highest = variables[a]
